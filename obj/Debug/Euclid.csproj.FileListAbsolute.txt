@@ -1,0 +1,9 @@
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\bin\Debug\Euclid.exe.config
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\bin\Debug\Euclid.exe
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\bin\Debug\Euclid.pdb
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\obj\Debug\Euclid.csprojResolveAssemblyReference.cache
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\obj\Debug\Euclid.Properties.Resources.resources
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\obj\Debug\Euclid.csproj.GenerateResource.Cache
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\obj\Debug\Euclid.exe
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\obj\Debug\Euclid.pdb
+C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid\Euclid\obj\Debug\Euclid.Form1.resources
