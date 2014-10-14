@@ -32,7 +32,7 @@ namespace Euclid
 
         private void btn_calc_Click(object sender, EventArgs e)
         {
-            if (rb_mod.Checked)
+            if (!rb_mod.Checked)
             {
                 while (denominator != 0)
                 {
@@ -44,7 +44,18 @@ namespace Euclid
             }
             else
             {
-                tb_result.Text = "Fuck off";
+                while (numerator != 0 && denominator != 0)
+                {
+                    if (numerator > denominator)
+                        numerator %= denominator;
+                    else
+                        denominator %= numerator;
+                }
+
+                if (numerator == 0)
+                    tb_result.Text = denominator.ToString();
+                else
+                    tb_result.Text = numerator.ToString();
             }
         }
     }
