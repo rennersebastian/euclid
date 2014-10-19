@@ -36,9 +36,14 @@ namespace Euclid
             {
                 while (denominator != 0)
                 {
-                    int temp = denominator;
-                    denominator = numerator % denominator;
-                    numerator = temp;
+                    if (numerator > denominator)
+                    {
+                        numerator = numerator - denominator;
+                    }
+                    else
+                    {
+                        denominator = denominator - numerator;
+                    }
                 }
                 tb_result.Text = numerator.ToString();
             }
