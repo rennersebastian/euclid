@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,10 +15,18 @@ namespace Euclid
     {
         private int numerator;
         private int denominator;
+        private int step;
+        private int result;
+        string NL = Environment.NewLine;
+        Stopwatch stopwatch;
 
         public Form1()
         {
             InitializeComponent();
+            numerator = 90987072;
+            denominator = 46049088;
+            tb_numerator.Text = numerator.ToString();
+            tb_denominator.Text = denominator.ToString();
         }
 
         private void tb_nominator_TextChanged(object sender, EventArgs e)
@@ -32,36 +41,97 @@ namespace Euclid
 
         private void btn_calc_Click(object sender, EventArgs e)
         {
-            if (!rb_mod.Checked)
+            tb_result.Clear();
+            result = 0;
+            switch (cb_method.SelectedIndex)
             {
-                while (denominator != 0)
-                {
-                    if (numerator > denominator)
-                    {
-                        numerator = numerator - denominator;
-                    }
-                    else
-                    {
-                        denominator = denominator - numerator;
-                    }
-                }
-                tb_result.Text = numerator.ToString();
-            }
-            else
-            {
-                while (numerator != 0 && denominator != 0)
-                {
-                    if (numerator > denominator)
-                        numerator %= denominator;
-                    else
-                        denominator %= numerator;
-                }
+                case 0:
+                    result = sub(numerator, denominator);
+                    tb_result.AppendText(NL + "");
+                    tb_result.AppendText(NL + "GCD: " + result);
+                    tb_result.AppendText(NL + "Fraction: " + numerator/result + "/" + denominator/result);
+                    tb_result.AppendText(NL + "Time: " + stopwatch.ElapsedMilliseconds + "ms");
+                    break;
 
-                if (numerator == 0)
-                    tb_result.Text = denominator.ToString();
-                else
-                    tb_result.Text = numerator.ToString();
+                case 1:
+                    result = mod(numerator, denominator);
+                    tb_result.AppendText(NL + "");
+                    tb_result.AppendText(NL + "GCD: " + result);
+                    tb_result.AppendText(NL + "Fraction: " + numerator/result + "/" + denominator/result);
+                    tb_result.AppendText(NL + "Time: " + stopwatch.ElapsedMilliseconds + "ms");
+                    break;
+
+                case 2:
+                    prime(numerator, denominator);
+                    tb_result.AppendText(NL + "");
+                    tb_result.AppendText(NL + "GCD: " + result);
+                    tb_result.AppendText(NL + "Fraction: " + numerator/result + "/" + denominator/result);
+                    tb_result.AppendText(NL + "Time: " + stopwatch.ElapsedMilliseconds + "ms");
+                    break;
+
+                default:
+                    MessageBox.Show("Select a Method.");
+                    break;
             }
+        }
+        
+        private int sub(int a, int b)
+        {
+            step = 0;
+            stopwatch = Stopwatch.StartNew();
+            while (b != 0)
+            {
+                step++;
+                if (a > b){
+                    a -= b;
+                    tb_result.AppendText(NL + "Step: " + step + " | A - B = " + a);
+                }
+                else{
+                    b -= a;
+                    tb_result.AppendText(NL + "Step: " + step + " | B - A = " + b);
+                }
+            }
+            stopwatch.Stop();
+            return a;
+        }
+
+        private int mod(int a, int b)
+        {
+            step = 0;
+            stopwatch = Stopwatch.StartNew();
+            while (a != 0 && b != 0)
+            {
+                step++;
+                if (a > b){
+                    a %= b;
+                    tb_result.AppendText(NL + "Step: " + step + " | A % B = " + a); 
+                }
+                else{
+                    b %= a;
+                    tb_result.AppendText(NL + "Step: " + step + " | B % A = " + b); 
+                }
+            }
+            stopwatch.Stop();
+            if (a == 0)
+                return b;
+            else
+                return a;
+        }
+
+        private int prime(int a, int b)
+        {
+            step = 0;
+            stopwatch = Stopwatch.StartNew();
+
+
+
+            stopwatch.Stop();
+            return a;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

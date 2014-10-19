@@ -16,3 +16,12 @@ C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid1\Euclid\obj\Debug\Euclid.Propertie
 C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid1\Euclid\obj\Debug\Euclid.csproj.GenerateResource.Cache
 C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid1\Euclid\bin\Debug\Euclid.exe
 C:\Users\Sebastian\Desktop\IMI\M2\Algo\Euclid1\Euclid\bin\Debug\Euclid.pdb
+E:\IMI\Master\2. Semester\algo\euclid\bin\Debug\Euclid.exe.config
+E:\IMI\Master\2. Semester\algo\euclid\obj\Debug\Euclid.exe
+E:\IMI\Master\2. Semester\algo\euclid\obj\Debug\Euclid.pdb
+E:\IMI\Master\2. Semester\algo\euclid\bin\Debug\Euclid.exe
+E:\IMI\Master\2. Semester\algo\euclid\bin\Debug\Euclid.pdb
+E:\IMI\Master\2. Semester\algo\euclid\obj\Debug\Euclid.csprojResolveAssemblyReference.cache
+E:\IMI\Master\2. Semester\algo\euclid\obj\Debug\Euclid.Form1.resources
+E:\IMI\Master\2. Semester\algo\euclid\obj\Debug\Euclid.Properties.Resources.resources
+E:\IMI\Master\2. Semester\algo\euclid\obj\Debug\Euclid.csproj.GenerateResource.Cache

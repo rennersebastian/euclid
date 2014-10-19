@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.btn_calc = new System.Windows.Forms.Button();
-            this.rb_sub = new System.Windows.Forms.RadioButton();
-            this.rb_mod = new System.Windows.Forms.RadioButton();
             this.tb_numerator = new System.Windows.Forms.TextBox();
             this.tb_denominator = new System.Windows.Forms.TextBox();
             this.label_num = new System.Windows.Forms.Label();
             this.label_denom = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cb_method = new System.Windows.Forms.ComboBox();
             this.tb_result = new System.Windows.Forms.TextBox();
-            this.label_result = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_calc
             // 
-            this.btn_calc.Location = new System.Drawing.Point(69, 124);
+            this.btn_calc.Location = new System.Drawing.Point(263, 51);
             this.btn_calc.Name = "btn_calc";
             this.btn_calc.Size = new System.Drawing.Size(75, 23);
             this.btn_calc.TabIndex = 0;
@@ -49,31 +51,9 @@
             this.btn_calc.UseVisualStyleBackColor = true;
             this.btn_calc.Click += new System.EventHandler(this.btn_calc_Click);
             // 
-            // rb_sub
-            // 
-            this.rb_sub.AutoSize = true;
-            this.rb_sub.Checked = true;
-            this.rb_sub.Location = new System.Drawing.Point(12, 12);
-            this.rb_sub.Name = "rb_sub";
-            this.rb_sub.Size = new System.Drawing.Size(84, 17);
-            this.rb_sub.TabIndex = 1;
-            this.rb_sub.TabStop = true;
-            this.rb_sub.Text = "Substraction";
-            this.rb_sub.UseVisualStyleBackColor = true;
-            // 
-            // rb_mod
-            // 
-            this.rb_mod.AutoSize = true;
-            this.rb_mod.Location = new System.Drawing.Point(103, 12);
-            this.rb_mod.Name = "rb_mod";
-            this.rb_mod.Size = new System.Drawing.Size(60, 17);
-            this.rb_mod.TabIndex = 2;
-            this.rb_mod.Text = "Modulo";
-            this.rb_mod.UseVisualStyleBackColor = true;
-            // 
             // tb_numerator
             // 
-            this.tb_numerator.Location = new System.Drawing.Point(88, 49);
+            this.tb_numerator.Location = new System.Drawing.Point(94, 18);
             this.tb_numerator.Name = "tb_numerator";
             this.tb_numerator.Size = new System.Drawing.Size(100, 20);
             this.tb_numerator.TabIndex = 3;
@@ -81,7 +61,7 @@
             // 
             // tb_denominator
             // 
-            this.tb_denominator.Location = new System.Drawing.Point(88, 86);
+            this.tb_denominator.Location = new System.Drawing.Point(94, 53);
             this.tb_denominator.Name = "tb_denominator";
             this.tb_denominator.Size = new System.Drawing.Size(100, 20);
             this.tb_denominator.TabIndex = 4;
@@ -90,7 +70,7 @@
             // label_num
             // 
             this.label_num.AutoSize = true;
-            this.label_num.Location = new System.Drawing.Point(9, 52);
+            this.label_num.Location = new System.Drawing.Point(10, 21);
             this.label_num.Name = "label_num";
             this.label_num.Size = new System.Drawing.Size(56, 13);
             this.label_num.TabIndex = 5;
@@ -99,60 +79,87 @@
             // label_denom
             // 
             this.label_denom.AutoSize = true;
-            this.label_denom.Location = new System.Drawing.Point(9, 89);
+            this.label_denom.Location = new System.Drawing.Point(10, 56);
             this.label_denom.Name = "label_denom";
             this.label_denom.Size = new System.Drawing.Size(67, 13);
             this.label_denom.TabIndex = 6;
             this.label_denom.Text = "Denominator";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cb_method);
+            this.panel1.Controls.Add(this.label_num);
+            this.panel1.Controls.Add(this.tb_denominator);
+            this.panel1.Controls.Add(this.label_denom);
+            this.panel1.Controls.Add(this.btn_calc);
+            this.panel1.Controls.Add(this.tb_numerator);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(405, 88);
+            this.panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.tb_result);
+            this.panel2.Location = new System.Drawing.Point(12, 106);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(405, 172);
+            this.panel2.TabIndex = 8;
+            // 
+            // cb_method
+            // 
+            this.cb_method.FormattingEnabled = true;
+            this.cb_method.Items.AddRange(new object[] {
+            "Subsctraction",
+            "Modulo",
+            "Prime"});
+            this.cb_method.Location = new System.Drawing.Point(240, 18);
+            this.cb_method.Name = "cb_method";
+            this.cb_method.Size = new System.Drawing.Size(121, 21);
+            this.cb_method.TabIndex = 0;
+            this.cb_method.Text = "Method";
+            this.cb_method.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // tb_result
             // 
-            this.tb_result.Location = new System.Drawing.Point(88, 164);
+            this.tb_result.Location = new System.Drawing.Point(14, 12);
+            this.tb_result.Multiline = true;
             this.tb_result.Name = "tb_result";
-            this.tb_result.Size = new System.Drawing.Size(100, 20);
-            this.tb_result.TabIndex = 7;
-            // 
-            // label_result
-            // 
-            this.label_result.AutoSize = true;
-            this.label_result.Location = new System.Drawing.Point(9, 167);
-            this.label_result.Name = "label_result";
-            this.label_result.Size = new System.Drawing.Size(37, 13);
-            this.label_result.TabIndex = 8;
-            this.label_result.Text = "Result";
+            this.tb_result.ReadOnly = true;
+            this.tb_result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_result.Size = new System.Drawing.Size(373, 150);
+            this.tb_result.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 202);
-            this.Controls.Add(this.label_result);
-            this.Controls.Add(this.tb_result);
-            this.Controls.Add(this.label_denom);
-            this.Controls.Add(this.label_num);
-            this.Controls.Add(this.tb_denominator);
-            this.Controls.Add(this.tb_numerator);
-            this.Controls.Add(this.rb_mod);
-            this.Controls.Add(this.rb_sub);
-            this.Controls.Add(this.btn_calc);
+            this.ClientSize = new System.Drawing.Size(429, 290);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Euclid";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btn_calc;
-        private System.Windows.Forms.RadioButton rb_sub;
-        private System.Windows.Forms.RadioButton rb_mod;
         private System.Windows.Forms.TextBox tb_numerator;
         private System.Windows.Forms.TextBox tb_denominator;
         private System.Windows.Forms.Label label_num;
         private System.Windows.Forms.Label label_denom;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cb_method;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tb_result;
-        private System.Windows.Forms.Label label_result;
     }
 }
 
