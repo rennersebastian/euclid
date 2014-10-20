@@ -23,8 +23,8 @@ namespace Euclid
         public Form1()
         {
             InitializeComponent();
-            numerator = 90987072;
-            denominator = 46049088;
+            numerator = 2366;
+            denominator = 273;
             tb_numerator.Text = numerator.ToString();
             tb_denominator.Text = denominator.ToString();
         }
@@ -62,7 +62,7 @@ namespace Euclid
                     break;
 
                 case 2:
-                    prime(numerator, denominator);
+                    result = prime(numerator, denominator);
                     tb_result.AppendText(NL + "");
                     tb_result.AppendText(NL + "GCD: " + result);
                     tb_result.AppendText(NL + "Fraction: " + numerator/result + "/" + denominator/result);
@@ -123,10 +123,33 @@ namespace Euclid
             step = 0;
             stopwatch = Stopwatch.StartNew();
 
+            List<int> primes = getPrimes(a);
 
+            
 
             stopwatch.Stop();
             return a;
+        }
+
+        private List<int> getPrimes(int n)
+        {
+            List<int> primes = new List<int>();
+
+            primes.Add(2);
+            int factor = n/2;
+            bool isPrime;
+            for (int i = 3; i <= factor; i += 2)
+            {
+                isPrime = true;
+                for (int j = 3; j * j <= i; j += 2)
+                {
+                    if (i % j == 0)
+                        isPrime = false;
+                }
+                if (isPrime)
+                    primes.Add(i);
+            }
+            return primes;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
