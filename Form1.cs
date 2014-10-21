@@ -13,30 +13,28 @@ namespace Euclid
 {
     public partial class Form1 : Form
     {
-        private int numerator;
-        private int denominator;
-        private int step;
-        private int result;
+        private ulong numerator;
+        private ulong denominator;
+        private ulong step;
+        private ulong result;
         string NL = Environment.NewLine;
         Stopwatch stopwatch;
 
         public Form1()
         {
             InitializeComponent();
-            numerator = 2366;
-            denominator = 273;
-            tb_numerator.Text = numerator.ToString();
-            tb_denominator.Text = denominator.ToString();
+            numerator = Convert.ToUInt64(nud_num.Value);
+            denominator = Convert.ToUInt64(nud_den.Value);
         }
 
-        private void tb_nominator_TextChanged(object sender, EventArgs e)
+        private void nud_num_ValueChanged(object sender, EventArgs e)
         {
-            numerator = Convert.ToInt32(tb_numerator.Text);
+            numerator = Convert.ToUInt64(nud_num.Value);
         }
 
-        private void tb_denominator_TextChanged(object sender, EventArgs e)
+        private void nud_den_ValueChanged(object sender, EventArgs e)
         {
-            denominator = Convert.ToInt32(tb_denominator.Text);
+            denominator = Convert.ToUInt64(nud_den.Value);
         }
 
         private void btn_calc_Click(object sender, EventArgs e)
@@ -75,7 +73,7 @@ namespace Euclid
             }
         }
         
-        private int sub(int a, int b)
+        private ulong sub(ulong a, ulong b)
         {
             step = 0;
             stopwatch = Stopwatch.StartNew();
@@ -95,7 +93,7 @@ namespace Euclid
             return a;
         }
 
-        private int mod(int a, int b)
+        private ulong mod(ulong a, ulong b)
         {
             step = 0;
             stopwatch = Stopwatch.StartNew();
@@ -118,30 +116,74 @@ namespace Euclid
                 return a;
         }
 
-        private int prime(int a, int b)
+        private ulong prime(ulong a, ulong b)
         {
             step = 0;
             stopwatch = Stopwatch.StartNew();
 
-            List<int> primes = getPrimes(a);
+            List<ulong> primes = getPrimes(a);
+            ulong temp = a;
+            List<ulong> factorsA = new List<ulong>();
+            List<ulong> factorsB = new List<ulong>();
 
+            while (temp > 1)
+            {
+                for (int i = 0; i < primes.Count; i++)
+                {
+                    if (temp % primes.ElementAt(i) == 0)
+                    {
+                        factorsA.Add(primes.ElementAt(i));
+                        temp = temp / primes.ElementAt(i);
+                        break;
+                    }
+                }
+            }
             
+            primes = getPrimes(b);
+            temp = b;
 
+            while (temp > 1)
+            {
+                for (int i = 0; i < primes.Count; i++)
+                {
+                    if (temp % primes.ElementAt(i) == 0)
+                    {
+                        factorsB.Add(primes.ElementAt(i));
+                        temp = temp / primes.ElementAt(i);
+                        break;
+                    }
+                }
+            }
+            List<ulong> results = new List<ulong>();
+            foreach (ulong u in factorsA)
+            {
+                if (factorsB.Contains(u))
+                {
+                    results.Add(u);
+                    factorsB.Remove(u);
+                }
+            }
+
+            temp = 1;
+            foreach (ulong u in results)
+            {
+                temp *= u;
+            }
             stopwatch.Stop();
-            return a;
+            return temp;
         }
 
-        private List<int> getPrimes(int n)
+        private List<ulong> getPrimes(ulong n)
         {
-            List<int> primes = new List<int>();
+            List<ulong> primes = new List<ulong>();
 
             primes.Add(2);
-            int factor = n/2;
+            ulong factor = n/2;
             bool isPrime;
-            for (int i = 3; i <= factor; i += 2)
+            for (ulong i = 3; i <= factor; i += 2)
             {
                 isPrime = true;
-                for (int j = 3; j * j <= i; j += 2)
+                for (ulong j = 3; j * j <= i; j += 2)
                 {
                     if (i % j == 0)
                         isPrime = false;

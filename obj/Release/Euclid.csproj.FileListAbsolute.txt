@@ -1,0 +1,8 @@
+E:\IMI\Master\2. Semester\algo\euclid\bin\Release\Euclid.exe.config
+E:\IMI\Master\2. Semester\algo\euclid\bin\Release\Euclid.exe
+E:\IMI\Master\2. Semester\algo\euclid\bin\Release\Euclid.pdb
+E:\IMI\Master\2. Semester\algo\euclid\obj\Release\Euclid.Form1.resources
+E:\IMI\Master\2. Semester\algo\euclid\obj\Release\Euclid.Properties.Resources.resources
+E:\IMI\Master\2. Semester\algo\euclid\obj\Release\Euclid.csproj.GenerateResource.Cache
+E:\IMI\Master\2. Semester\algo\euclid\obj\Release\Euclid.exe
+E:\IMI\Master\2. Semester\algo\euclid\obj\Release\Euclid.pdb

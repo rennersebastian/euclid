@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.btn_calc = new System.Windows.Forms.Button();
-            this.tb_numerator = new System.Windows.Forms.TextBox();
-            this.tb_denominator = new System.Windows.Forms.TextBox();
             this.label_num = new System.Windows.Forms.Label();
             this.label_denom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.cb_method = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tb_result = new System.Windows.Forms.TextBox();
+            this.nud_num = new System.Windows.Forms.NumericUpDown();
+            this.nud_den = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_num)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_den)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_calc
@@ -50,22 +52,6 @@
             this.btn_calc.Text = "Calculate";
             this.btn_calc.UseVisualStyleBackColor = true;
             this.btn_calc.Click += new System.EventHandler(this.btn_calc_Click);
-            // 
-            // tb_numerator
-            // 
-            this.tb_numerator.Location = new System.Drawing.Point(94, 18);
-            this.tb_numerator.Name = "tb_numerator";
-            this.tb_numerator.Size = new System.Drawing.Size(100, 20);
-            this.tb_numerator.TabIndex = 3;
-            this.tb_numerator.TextChanged += new System.EventHandler(this.tb_nominator_TextChanged);
-            // 
-            // tb_denominator
-            // 
-            this.tb_denominator.Location = new System.Drawing.Point(94, 53);
-            this.tb_denominator.Name = "tb_denominator";
-            this.tb_denominator.Size = new System.Drawing.Size(100, 20);
-            this.tb_denominator.TabIndex = 4;
-            this.tb_denominator.TextChanged += new System.EventHandler(this.tb_denominator_TextChanged);
             // 
             // label_num
             // 
@@ -88,25 +74,16 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.nud_den);
             this.panel1.Controls.Add(this.cb_method);
+            this.panel1.Controls.Add(this.nud_num);
             this.panel1.Controls.Add(this.label_num);
-            this.panel1.Controls.Add(this.tb_denominator);
             this.panel1.Controls.Add(this.label_denom);
             this.panel1.Controls.Add(this.btn_calc);
-            this.panel1.Controls.Add(this.tb_numerator);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(405, 88);
             this.panel1.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.tb_result);
-            this.panel2.Location = new System.Drawing.Point(12, 106);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(405, 172);
-            this.panel2.TabIndex = 8;
             // 
             // cb_method
             // 
@@ -122,6 +99,15 @@
             this.cb_method.Text = "Method";
             this.cb_method.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.tb_result);
+            this.panel2.Location = new System.Drawing.Point(12, 106);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(405, 172);
+            this.panel2.TabIndex = 8;
+            // 
             // tb_result
             // 
             this.tb_result.Location = new System.Drawing.Point(14, 12);
@@ -131,6 +117,42 @@
             this.tb_result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_result.Size = new System.Drawing.Size(373, 150);
             this.tb_result.TabIndex = 2;
+            // 
+            // nud_num
+            // 
+            this.nud_num.Location = new System.Drawing.Point(94, 19);
+            this.nud_num.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nud_num.Name = "nud_num";
+            this.nud_num.Size = new System.Drawing.Size(120, 20);
+            this.nud_num.TabIndex = 3;
+            this.nud_num.Value = new decimal(new int[] {
+            2366,
+            0,
+            0,
+            0});
+            this.nud_num.ValueChanged += new System.EventHandler(this.nud_num_ValueChanged);
+            // 
+            // nud_den
+            // 
+            this.nud_den.Location = new System.Drawing.Point(94, 54);
+            this.nud_den.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nud_den.Name = "nud_den";
+            this.nud_den.Size = new System.Drawing.Size(120, 20);
+            this.nud_den.TabIndex = 4;
+            this.nud_den.Value = new decimal(new int[] {
+            273,
+            0,
+            0,
+            0});
+            this.nud_den.ValueChanged += new System.EventHandler(this.nud_den_ValueChanged);
             // 
             // Form1
             // 
@@ -145,6 +167,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_num)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_den)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -152,14 +176,14 @@
         #endregion
 
         private System.Windows.Forms.Button btn_calc;
-        private System.Windows.Forms.TextBox tb_numerator;
-        private System.Windows.Forms.TextBox tb_denominator;
         private System.Windows.Forms.Label label_num;
         private System.Windows.Forms.Label label_denom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cb_method;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tb_result;
+        private System.Windows.Forms.NumericUpDown nud_den;
+        private System.Windows.Forms.NumericUpDown nud_num;
     }
 }
 
